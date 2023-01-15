@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Vigéssimo</title>
+</head>
+<body>
+    <div id="fernando"></div>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        class App extends React.Component{
+            render(){
+               const socios = [
+                {
+                    id: 1,
+                    nome: "Fernando",
+                    idade: 18
+                },
+                {
+                    id:2,
+                    nome: "Divaldo",
+                    idade:17
+                }
+               ]
+               const final = socios.map(socio => <Mostrarsocio key={socio.id} socio={socio}/>)
+                return(
+                    <div>
+                        {final}
+                    </div>
+                )
+            }
+        }
+        class Mostrarsocio extends React.Component{
+            constructor(props){
+                super(props)
+
+
+            }
+            render(){
+                return(
+                        <div>
+                            <p>id: {this.props.key}</p>
+                            <p>Nome: {this.props.socio.nome}</p>
+                            <p>Idade: {this.props.socio.idade}</p>
+                        </div>
+                )
+            }
+        }
+        //---------------------------------
+        ReactDOM.render(<App />, 
+        document.getElementById('fernando')
+        )
+
+    </script>
+</body>
+</html>

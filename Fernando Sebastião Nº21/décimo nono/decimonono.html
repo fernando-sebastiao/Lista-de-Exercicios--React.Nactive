@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React decimonono</title>
+</head>
+<body>
+    <div id="style"></div>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        class App extends React.Component{
+            render(){
+
+                const noticias = [{
+                    titulo: "Noticia 1",
+                    texto: "Texto da noticia 1",
+                    autor: "Autor 1"
+                },
+                {
+                    titulo: "Noticia 2",
+                    texto: "Texto de noticia 2",
+                    autor: "Autor 2"
+                },
+                {
+                    titulo: "Noticia 3",
+                    texto: "Texto de noticia 3",
+                    autor: "Autor"
+                },
+                {
+                    titulo: "Noticia 4",
+                    texto: "Texto de noticia 4",
+                    autor: "Autor"
+                }
+            ]
+            // Preparação do Componente Child 
+            const final = noticia.map(<Noticia noticia={noticia}/>)
+                return(
+                    <div>
+                    <h2>Notícias</h2>
+                    <hr/>
+                    {final}
+                    </div>
+                )
+            }
+        }
+        class noticia extends React.Component{
+
+            constructor(props){
+                super(props)
+            }
+
+            render(){
+            return(
+                <div>
+                    <h3>{this.props.noticia.titulo}</h3>
+                    <p>{this.props.noticia.texto}</p>
+                    <small><i>{this.props.noticia.autor}</i></small>
+                </div>
+            )
+        }
+    }
+        //------------------------------
+        ReactDOM.render(<App />,
+        document.getElementById('style')
+        )
+    </script>
+</body>
+</html>

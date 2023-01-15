@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react decimo</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        //Identificação
+        class Identificacao extends React.Component{
+            constructor(){
+                super()
+                this.state = {
+                    nome: "Fernando Sebastião",
+                    Idade: 18
+
+                }
+            }
+            render(){
+                return(
+                    <div>
+                        <Nome nome={this.state.nome}/>
+                        <Idade Idade={this.state.Idade}/>
+                    </div>
+                )
+            }
+        }
+
+        class Nome extends React.Component{
+            render(){
+                return(
+                    <p>Nome: {this.props.nome}</p>
+                )
+            }
+        }
+
+        class Idade extends React.Component{
+            render(){
+                return(
+                    <p>Idade: {this.props.Idade}</p>
+                )
+            }
+        }
+
+        const root = document.getElementById('root');
+        ReactDOM.render(<Identificacao />, root)
+
+    </script>
+</body>
+</html>

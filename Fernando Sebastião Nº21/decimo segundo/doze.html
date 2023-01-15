@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React doze</title>
+</head>
+<body>
+     <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        class CampNome extends React.Component{
+
+            constructor(props){
+                super(props)
+                this.state = {
+                    nome: this.props.nome_inicial
+                }
+
+                // binding
+                this.cmd_click = this.cmd_click.bind(this)
+            }
+            cmd_click(){
+                this.setState({nome: this.props.nome_final})
+            }
+
+            render(){
+                return(
+                    <div>
+                        <p>Nome: {this.state.nome}</p>
+                        <button onClick={this.cmd_click}>Alterar</button>
+                    </div>
+                )
+            }
+
+        }
+
+
+        //------------------------------
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <h3>Exercício</h3>
+                        <hr/> 
+                        <CampNome nome_inicial ="Divaldo" nome_final ="Hélder" />
+                        <CampNome nome_inicial ="Carla" nome_final ="Silva" />
+                        <CampNome nome_inicial ="Abrãao" nome_final ="Daniel" />
+                    </div>
+                )
+            }
+        }
+        //---------------------------
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
